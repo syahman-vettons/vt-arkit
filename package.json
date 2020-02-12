@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/vt-arkit.git",
-    "baseUrl": "https://github.com/github_account/vt-arkit"
+    "url": "git+https://github.com/syahman-vettons/vt-arkit.git",
+    "baseUrl": "https://github.com/syahman-vettons/vt-arkit"
   },
   "keywords": [
     "react-native"

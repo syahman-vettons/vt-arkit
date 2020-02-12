@@ -9,13 +9,13 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   vt-arkit
                    DESC
-  s.homepage     = "https://github.com/github_account/VTARKit"
+  s.homepage     = "https://github.com/syahman-vettons/vt-arkit"
   s.license      = "MIT"
   s.swift_version= '4.2'
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
   s.authors      = { "Muhammad Syahman" => "syahman@vettons.com" }
   s.platforms    = { :ios => "9.0" }
-  s.source       = { :git => "https://github.com/github_account/VTARKit.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/syahman-vettons/vt-arkit.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
