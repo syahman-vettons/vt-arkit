@@ -1,0 +1,34 @@
+import { NativeModules, Alert } from 'react-native';
+
+const NativeARView = NativeModules.ARView;
+
+export default class ARView {
+    /** Check if AR supported from Native
+    *@returns `{supported: Boolean, message: String}`
+    */
+    static nativeARCheck(){
+      return new Promise(resolve => {
+        NativeARView.isARSupported(val => resolve(val));
+      });
+    }
+  
+    /** Async method to check if AR is supported
+     * @returns `true` if supported. Will return `false` and an `Alert` if not supported.
+     */
+    static async isARSupported() {
+      const nativeCheck = await this.nativeARCheck();
+  
+      if (nativeCheck.supported) {
+        return true;
+      } else {
+        Alert.alert('Not Supported', nativeCheck.message);
+        return false;
+      }
+    }
+    /** Display the AR Session with path as parameter
+     * @param {*} path Absolute path to the 3D Model file
+     */
+    static display(path){
+      NativeARView.display(path);
+    }
+  }
