@@ -99,7 +99,7 @@ class ARViewBridge: NSObject {
     @objc
     func allowsContentScaling(_ boolean: Bool) {
         model.allowsContentScaling = boolean
-        print("VTARQuickLook => Allows content scaling = \(model.contentScaling)")
+        print("VTARQuickLook => Allows content scaling = \(model.allowsContentScaling)")
     }
     
     @objc
