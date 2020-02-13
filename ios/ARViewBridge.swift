@@ -103,7 +103,7 @@ class ARViewBridge: NSObject {
     }
     
     @objc
-    static func canonicalWebPageURL(_ url: String){
+    func canonicalWebPageURL(_ url: String){
         model.canonicalWebPageURL = url
         print("VTARQuickLook => Canonical Web Page URL = \(model.canonicalWebPageURL)")
     }
