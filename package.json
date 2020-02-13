@@ -1,7 +1,7 @@
 {
   "name": "vt-arkit",
   "title": "vt-arkit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "VT ARQuickLook module",
   "main": "index.js",
   "scripts": {

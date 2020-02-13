@@ -13,8 +13,10 @@
 
 @interface RCT_EXTERN_MODULE(ARView, NSObject);
 
-RCT_EXTERN_METHOD(display:(String)url)
-RCT_EXTERN_METHOD(downloadFileAndGo:(String)url)
+RCT_EXTERN_METHOD(display:(NSString)url)
+RCT_EXTERN_METHOD(downloadFileAndGo:(NSString)url)
+RCT_EXTERN_METHOD(canonicalWebPageURL:(NSString)url)
+RCT_EXTERN_METHOD(allowsContentScaling:(BOOL)boolean)
 RCT_EXTERN_METHOD(isARSupported:(RCTResponseSenderBlock)callback)
 
 - (dispatch_queue_t)methodQueue

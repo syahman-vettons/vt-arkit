@@ -38,4 +38,18 @@ export default class ARView {
     static instantGo(remoteURL){
       NativeARView.downloadFileAndGo(remoteURL);
     }
+
+    /** Method to set allowsContentScaling
+     * @param {*} bool True of False
+     */
+    static allowsContentScaling(bool){
+      NativeARView.allowsContentScaling(bool);
+    }
+
+    /** Method to set canonicalWebPageURL
+     * @param {*} url URL to share
+     */
+    static canonicalWebPageURL(url){
+      NativeARView.canonicalWebPageURL(url);
+    }
   }
