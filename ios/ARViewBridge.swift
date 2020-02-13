@@ -10,6 +10,14 @@ import Foundation
 
 @objc(ARView)
 class ARViewBridge: NSObject {
+
+  func gotoVC(){
+      let vc = qlView
+      let rootVC = UIApplication.shared.keyWindow?.rootViewController
+      vc.modalPresentationStyle = .fullScreen
+      rootVC?.present(vc, animated: true, completion: nil)
+      vcDismiss.state = false
+  }
   
   @available(iOS 12.0, *)
   @objc
@@ -32,21 +40,46 @@ class ARViewBridge: NSObject {
     }
     
     if model.isAvailable {
-      
-//      guard let vc: UIViewController = UIStoryboard(name: "ARView", bundle: nil).instantiateInitialViewController() else {return}
-      let vc = qlView
-      let rootVC = UIApplication.shared.keyWindow?.rootViewController
-      vc.modalPresentationStyle = .fullScreen
-      rootVC?.present(vc, animated: true, completion: nil)
-      vcDismiss.state = false
-      //    util.rootViewController().present(vc, animated: true, completion: nil)
+      gotoVC()
     } else {
       fatalError("VTARQuickLook => 3D Model is not available")
-//      RNEventEmitter.sharedInstance.dispatch(name: "error", body: ["type": "model", "message": "3D Model is not available"])
     }
   }
   
-  
+  @objc
+  func downloadFileAndGo(_ url: String){
+
+    let fm = FileManager.default
+    let modelName = url.deletingPathExtension().lastPathComponent
+    let cacheDir = try! fm.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+    
+    let downloadLocation = cacheDir.appendingPathComponent("ARModel").appendingPathComponent("\(modelName).usdz")
+    
+    // Download file to Cache Directory
+    // START DOWNLOAD
+    print("VTARQuickLook => Downloading 3D Model")
+    
+    do {
+        let data  = try Data(contentsOf: url!)
+
+        try data.write(to: downloadLocation, options: .atomic)
+        
+        // Set model url to download location
+        model.URL = downloadLocation
+
+        // Set model availability to true
+        model.isAvailable = true
+
+        
+    } catch {
+        fatalError("VTARQuickLook => Cannot download file to directory")
+    }
+    
+    // END DOWNLOAD
+    print("VTARQuickLook => 3D Model Downloading Finished")
+    
+    gotoVC()
+  }
   
   @objc
   func isARSupported(_ callback: RCTResponseSenderBlock){

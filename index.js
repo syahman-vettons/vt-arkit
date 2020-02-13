@@ -31,4 +31,11 @@ export default class ARView {
     static display(path){
       NativeARView.display(path);
     }
+
+    /** Download natively and Display the AR (Experimental)
+     * @param {*} remoteURL URL of the 3D Model File
+     */
+    static instantGo(remoteURL){
+      NativeARView.downloadFileAndGo(remoteURL);
+    }
   }
