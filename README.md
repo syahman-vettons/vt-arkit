@@ -1,6 +1,6 @@
 # vt-arkit
 
-### Version 1.0.2
+### Version 1.0.3
 vt-arkit is an ARKit module for VT. Uses ARQuickLook to display the USDZ file in Augmented Reality. This module does not handle the downloading of the 3D file.
 
 ## Getting started
@@ -38,7 +38,7 @@ ARView.nativeARCheck()
 */
 ARView.display(path);
 
-/** Download natively and Display the AR (Experimental)
+/** Download natively and Display the AR
  * @param {*} remoteURL URL of the 3D Model File
  */
 ARView.instantGo(remoteURL);

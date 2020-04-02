@@ -56,7 +56,7 @@ class ARViewBridge: NSObject {
         let modelName = url!.deletingPathExtension().lastPathComponent
         let cacheDir = try! fm.url(for: .cachesDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
-        let downloadLocation = cacheDir.appendingPathComponent("ARModel").appendingPathComponent("\(modelName).usdz")
+        let downloadLocation = cacheDir.appendingPathComponent("\(modelName).usdz")
         
         // Download file to Cache Directory
         // START DOWNLOAD
